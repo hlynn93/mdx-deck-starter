@@ -1,0 +1,23 @@
+{
+  "name": "mdx-deck-starter",
+  "version": "1.0.0",
+  "description": "A starter kit for mdx-deck based slides",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "mdx-deck src/decks/main.mdx",
+    "build": "mdx-deck build src/decks/main.mdx",
+    "pdf": "mdx-deck pdf src/decks/main.mdx",
+    "image": "mdx-deck screenshot src/decks/main.mdx",
+    "help": "mdx-deck"
+  },
+  "author": "Han Lynn",
+  "license": "WTFPL",
+  "dependencies": {
+    "mdx-deck-live-code": "^1.0.1",
+    "react": "^16.12.0",
+    "styled-components": "^5.0.0"
+  },
+  "devDependencies": {
+    "mdx-deck": "^3.0.13"
+  }
+}
