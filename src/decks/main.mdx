@@ -1,20 +1,99 @@
 import { LiveCode } from 'mdx-deck-live-code'
+import { Button, Checkbox } from '@material-ui/core'
+import { Split } from 'mdx-deck'
 
-# This is the title of my deck
-
----
-
-# About Me
+# Global Market UI Workshop
 
 ---
 
-```jsx
-    <CodeSnippet />
-```
+# React UI Frameworks
 
 ---
 
-# The end
+# [Material UI](https://material-ui.com/)
+
+---
+
+# Reusable components
+
+<div style={{ display: 'flex', flexDirection: 'row', marginBottom: 12 }}>
+    <Button variant="contained">Default</Button>
+    <div style={{ marginRight: 8 }} />
+    <Button variant="contained" color="primary">
+        Primary
+    </Button>
+    <div style={{ marginRight: 8 }} />
+    <Button variant="contained" color="secondary">
+        Secondary
+    </Button>
+    <div style={{ marginRight: 8 }} />
+    <Button variant="contained" disabled>
+        Disabled
+    </Button>
+    <div style={{ marginRight: 8 }} />
+    <Button variant="contained" color="primary" href="#contained-buttons">
+        Link
+    </Button>
+</div>
+
+<div style={{ display: 'flex', flexDirection: 'row' }}>
+    <Checkbox
+        checked={true}
+        value="primary"
+        inputProps={{ 'aria-label': 'primary checkbox' }}
+    />
+    <div style={{ marginRight: 8 }} />
+    <Checkbox
+        defaultChecked
+        value="secondary"
+        color="primary"
+        inputProps={{ 'aria-label': 'secondary checkbox' }}
+    />
+    <div style={{ marginRight: 8 }} />
+    <Checkbox value="uncontrolled" inputProps={{ 'aria-label': 'uncontrolled-checkbox' }} />
+    <div style={{ marginRight: 8 }} />
+    <Checkbox disabled value="disabled" inputProps={{ 'aria-label': 'disabled checkbox' }} />
+    <div style={{ marginRight: 8 }} />
+    <Checkbox
+        disabled
+        checked
+        value="disabled checked"
+        inputProps={{ 'aria-label': 'disabled checked checkbox' }}
+    />
+    <div style={{ marginRight: 8 }} />
+    <Checkbox
+        defaultChecked
+        value="indeterminate"
+        indeterminate
+        inputProps={{ 'aria-label': 'indeterminate checkbox' }}
+    />
+    <div style={{ marginRight: 8 }} />
+    <Checkbox
+        defaultChecked
+        color="default"
+        value="default"
+        inputProps={{ 'aria-label': 'checkbox with default color' }}
+    />
+    <div style={{ marginRight: 8 }} />
+    <Checkbox
+        defaultChecked
+        size="small"
+        value="small"
+        inputProps={{ 'aria-label': 'checkbox with small size' }}
+    />
+</div>
+
+---
+
+# CSS-in-JS
+
+---
+
+# Extensibility
+
+---
+
+# Theming
 
 ---
 

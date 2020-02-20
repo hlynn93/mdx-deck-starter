@@ -13,6 +13,7 @@
   "author": "Han Lynn",
   "license": "WTFPL",
   "dependencies": {
+    "@material-ui/core": "^4.9.3",
     "code-surfer": "^3.1.0",
     "mdx-deck-live-code": "^1.0.1",
     "react": "^16.12.0",
