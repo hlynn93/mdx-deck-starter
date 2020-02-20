@@ -13,6 +13,7 @@
   "author": "Han Lynn",
   "license": "WTFPL",
   "dependencies": {
+    "code-surfer": "^3.1.0",
     "mdx-deck-live-code": "^1.0.1",
     "react": "^16.12.0",
     "styled-components": "^5.0.0"
