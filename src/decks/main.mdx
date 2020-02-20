@@ -1,6 +1,19 @@
 import { LiveCode } from 'mdx-deck-live-code'
-import { Button, Checkbox } from '@material-ui/core'
+import {
+    Button,
+    Checkbox,
+    ExpansionPanel,
+    ExpansionPanelSummary,
+    ExpansionPanelDetails
+} from '@material-ui/core'
+
+import { createMuiTheme, withStyles, makeStyles, ThemeProvider } from '@material-ui/core/styles';
+
 import { Split } from 'mdx-deck'
+import { CodeSurfer } from "code-surfer"
+
+import BootstrapButton from '../components/BootstrapButton'
+import CustomCheckbox from '../components/CustomCheckbox'
 
 # Global Market UI Workshop
 
@@ -8,9 +21,20 @@ import { Split } from 'mdx-deck'
 
 # React UI Frameworks
 
+- Solid foundation
+- Consistent look and feel
+- Reduce complexity of the application
+- Many more
+
 ---
 
 # [Material UI](https://material-ui.com/)
+
+- Proven design system
+- A great suite of reusable components
+- CSS-in-JS
+- Extensibility
+- Theming
 
 ---
 
@@ -82,18 +106,303 @@ import { Split } from 'mdx-deck'
         inputProps={{ 'aria-label': 'checkbox with small size' }}
     />
 </div>
+<div style={{ display: 'flex', flexDirection: 'row', marginTop: 12 }}>
+    <ExpansionPanel style={{ maxWidth: 500 }}>
+        <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            id="panel1a-header"
+        >
+            <Typography>Expansion Panel 1</Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+            <Typography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
+            sit amet blandit leo lobortis eget.
+            </Typography>
+        </ExpansionPanelDetails>
+    </ExpansionPanel>
+</div>
+
+---
+
+<ExpansionPanel style={{ maxWidth: 500 }}>
+    <ExpansionPanelSummary
+        expandIcon={<ExpandMoreIcon />}
+        id="panel1a-header"
+    >
+        <Typography>Expansion Panel 1</Typography>
+    </ExpansionPanelSummary>
+    <ExpansionPanelDetails>
+        <Typography>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
+        sit amet blandit leo lobortis eget.
+        </Typography>
+    </ExpansionPanelDetails>
+</ExpansionPanel>
+
+---
+
+<CodeSurfer>
+
+```js 1,8
+<ExpansionPanel>
+    <ExpansionPanelSummary>
+        Summary Text
+    </ExpansionPanelSummary>
+    <ExpansionPanelDetails>
+        Details Text
+    </ExpansionPanelDetails>
+</ExpansionPanel>
+```
+
+```js 2:4
+<ExpansionPanel>
+    <ExpansionPanelSummary>
+        Summary Text
+    </ExpansionPanelSummary>
+    <ExpansionPanelDetails>
+        Details Text
+    </ExpansionPanelDetails>
+</ExpansionPanel>
+```
+
+```js 5:7
+<ExpansionPanel>
+    <ExpansionPanelSummary>
+        Summary Text
+    </ExpansionPanelSummary>
+    <ExpansionPanelDetails>
+        Details Text
+    </ExpansionPanelDetails>
+</ExpansionPanel>
+```
+
+</CodeSurfer>
+
+---
+
+# Demo
 
 ---
 
 # CSS-in-JS
 
+- Local scoping
+- Reusable
+- Dynamic styling
+- Theming
+
 ---
 
-# Extensibility
+## Custom Button
+
+<BootstrapButton>Button</BootstrapButton>
+
+---
+
+<CodeSurfer>
+
+```js 1
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    backgroundColor: props => props.bgColor,
+    color: 'white'
+
+    '&:hover': {
+      backgroundColor: '#0069d9',
+      borderColor: '#0062cc',
+      boxShadow: 'none',
+    },
+  }
+}));
+
+const CustomComponent = (props) => {
+    const classes = useStyles(props);
+    return (
+        <Button classes={classes}>
+            Button
+        </Button>
+    )
+}
+```
+
+
+```js 3:14
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    backgroundColor: props => props.bgColor,
+    color: 'white'
+
+    '&:hover': {
+      backgroundColor: '#0069d9',
+      borderColor: '#0062cc',
+      boxShadow: 'none',
+    },
+  }
+}));
+
+const CustomComponent = (props) => {
+    const classes = useStyles(props);
+    return (
+        <Button classes={classes}>
+            Button
+        </Button>
+    )
+}
+```
+
+```js 15:23
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    backgroundColor: props => props.bgColor,
+    color: 'white'
+
+    '&:hover': {
+      backgroundColor: '#0069d9',
+      borderColor: '#0062cc',
+      boxShadow: 'none',
+    },
+  }
+}));
+
+const CustomComponent = (props) => {
+    const classes = useStyles(props);
+    return (
+        <Button classes={classes}>
+            Button
+        </Button>
+    )
+}
+```
+
+</CodeSurfer>
 
 ---
 
 # Theming
+
+- Theme provider
+- Base theme
+
+---
+
+<CustomCheckbox />
+
+---
+
+<CodeSurfer>
+
+```js 18:22
+const useStyles = makeStyles(theme => ({
+    root: {
+        color: theme.status.danger
+    }
+}))
+
+const CustomCheckbox = (props) => {
+    const classes = useStyles()
+    return (
+        <Checkbox
+            classes={{
+                root: classes.root
+            }}
+        />
+    )
+}
+
+const theme = createMuiTheme({
+    status: {
+        danger: 'orange'
+    }
+})
+
+function CustomStyles() {
+    return (
+        <ThemeProvider theme={theme}>
+            <CustomCheckbox />
+        </ThemeProvider>
+    )
+}
+```
+
+```js 23:30
+const useStyles = makeStyles(theme => ({
+    root: {
+        color: theme.status.danger
+    }
+}))
+
+const CustomCheckbox = (props) => {
+    const classes = useStyles()
+    return (
+        <Checkbox
+            classes={{
+                root: classes.root
+            }}
+        />
+    )
+}
+
+const theme = createMuiTheme({
+    status: {
+        danger: 'orange'
+    }
+})
+
+function CustomStyles() {
+    return (
+        <ThemeProvider theme={theme}>
+            <CustomCheckbox />
+        </ThemeProvider>
+    )
+}
+```
+
+```js 1:17
+const useStyles = makeStyles(theme => ({
+    root: {
+        color: theme.status.danger
+    }
+}))
+
+const CustomCheckbox = (props) => {
+    const classes = useStyles()
+    return (
+        <Checkbox
+            classes={{
+                root: classes.root
+            }}
+        />
+    )
+}
+
+const theme = createMuiTheme({
+    status: {
+        danger: 'orange'
+    }
+})
+
+function CustomStyles() {
+    return (
+        <ThemeProvider theme={theme}>
+            <CustomCheckbox />
+        </ThemeProvider>
+    )
+}
+```
+
+
+</CodeSurfer>
+
+---
+
+# Demo
 
 ---
 
